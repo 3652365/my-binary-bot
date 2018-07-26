@@ -1,0 +1,132 @@
+﻿<xml xmlns="http://www.w3.org/1999/xhtml" collection="false">
+  <variables></variables>
+  <block type="trade" id="xgH69|xFn9=70w.*3Vo@" x="0" y="0">
+    <field name="MARKET_LIST">volidx</field>
+    <field name="SUBMARKET_LIST">random_index</field>
+    <field name="SYMBOL_LIST">R_100</field>
+    <field name="TRADETYPECAT_LIST">callput</field>
+    <field name="TRADETYPE_LIST">risefall</field>
+    <field name="TYPE_LIST">both</field>
+    <field name="CANDLEINTERVAL_LIST">60</field>
+    <field name="TIME_MACHINE_ENABLED">FALSE</field>
+    <field name="RESTARTONERROR">TRUE</field>
+    <statement name="INITIALIZATION">
+      <block type="notify" id="W51O6i`C-*WpG9^DcbP_">
+        <field name="NOTIFICATION_TYPE">success</field>
+        <field name="NOTIFICATION_SOUND">silent</field>
+        <value name="MESSAGE">
+          <shadow type="text" id="7nEj54*/}QDh_0f27yY;">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id="CIv}^.jv@NpR*~dw_%,N">
+            <field name="TEXT">run once at start</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <statement name="SUBMARKET">
+      <block type="notify" id="`VNvJg*nvvpJ~j*Vs%m?">
+        <field name="NOTIFICATION_TYPE">success</field>
+        <field name="NOTIFICATION_SOUND">silent</field>
+        <value name="MESSAGE">
+          <shadow type="text" id="zB+zN=:kS,2R@(Oc^w$(">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id="{az)G+xrL0BCvIl8PgP?">
+            <field name="TEXT">define trade option</field>
+          </block>
+        </value>
+        <next>
+          <block type="tradeOptions" id="x=V33~4Lb|(sLv`J[:Eb">
+            <field name="DURATIONTYPE_LIST">t</field>
+            <field name="CURRENCY_LIST">USD</field>
+            <value name="DURATION">
+              <shadow type="math_number" id="O*@58sDc=!cOO}*b2vf9">
+                <field name="NUM">5</field>
+              </shadow>
+            </value>
+            <value name="AMOUNT">
+              <shadow type="math_number" id="ml)25~7^q}3I9}vjf:%K">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="tick_analysis" id="7FOom9G@+8lyoZUg|f4?" x="0" y="450">
+    <statement name="TICKANALYSIS_STACK">
+      <block type="notify" id="P3Y?Cxyw*Ti#-T6,lF:2">
+        <field name="NOTIFICATION_TYPE">success</field>
+        <field name="NOTIFICATION_SOUND">silent</field>
+        <value name="MESSAGE">
+          <shadow type="text" id="zB+zN=:kS,2R@(Oc^w$(">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id=":SwR2}um{X0$}Y.,d:(4">
+            <field name="TEXT">called on every tick</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="before_purchase" id="i-CIx.(Onm4?ihxzA}Y]" x="0" y="551">
+    <statement name="BEFOREPURCHASE_STACK">
+      <block type="notify" id="l^G?FRWc#/EsX:Ka~yS6">
+        <field name="NOTIFICATION_TYPE">success</field>
+        <field name="NOTIFICATION_SOUND">silent</field>
+        <value name="MESSAGE">
+          <shadow type="text" id="zB+zN=:kS,2R@(Oc^w$(">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id="A;jWx:hIF__i-M=eoL.N">
+            <field name="TEXT">2. watch and purchase your contract</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="during_purchase" id="(4;NieXd}j|Bn!c-YiC|" x="0" y="693">
+    <statement name="DURING_PURCHASE_STACK">
+      <block type="notify" id="put]KG+dwgzB+9yXEhTL">
+        <field name="NOTIFICATION_TYPE">success</field>
+        <field name="NOTIFICATION_SOUND">silent</field>
+        <value name="MESSAGE">
+          <shadow type="text" id="zB+zN=:kS,2R@(Oc^w$(">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id="*NM/ARQ}92)3t-TVNEcl">
+            <field name="TEXT">3. watch and sell your purchased contract</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="8?eYKAW%VczmRXQ-ou3r">
+            <value name="IF0">
+              <block type="check_sell" id="M=:_KpEeRAJY_}XTU^8~"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="after_purchase" id="D^Jz1^n=2vtZku1vBN@;" x="0" y="867">
+    <statement name="AFTERPURCHASE_STACK">
+      <block type="notify" id="xRFzfqanGa2IM6(yv*+6">
+        <field name="NOTIFICATION_TYPE">success</field>
+        <field name="NOTIFICATION_SOUND">silent</field>
+        <value name="MESSAGE">
+          <shadow type="text" id="zB+zN=:kS,2R@(Oc^w$(">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id="1m0LJWh{^S``YtpWeV!1">
+            <field name="TEXT">4. get your trade result and trade angin</field>
+          </block>
+        </value>
+        <next>
+          <block type="trade_again" id="c)S|KjoQdXc8l#J@5z3P"></block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

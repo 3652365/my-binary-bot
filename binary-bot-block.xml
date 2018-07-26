@@ -1,0 +1,110 @@
+﻿<xml xmlns="http://www.w3.org/1999/xhtml" collection="true">
+  <block type="controls_if" id="T6whe3c?882xfvVnRu.d">
+    <mutation else="1"></mutation>
+    <value name="IF0">
+      <block type="logic_compare" id="~hc(rpKSga$-?4?~bO@j">
+        <field name="OP">LT</field>
+        <value name="A">
+          <block type="total_profit" id="j!^^u4WtRd]F.FK$5KP-"></block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="oerD/,kkM!;qB+Q#}U_j">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="DO0">
+      <block type="controls_if" id="o:P9#V;WBX;^*le1n8fv">
+        <value name="IF0">
+          <block type="contract_check_result" id="(4eA48ZiSU5-jcg00g8u">
+            <field name="CHECK_RESULT">win</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="variables_set" id="@Veo*xmrSNkT/C-nj7i@">
+            <field name="VAR" id="$s;(m;dD_xwJliPI=[4%" variabletype="">stake</field>
+            <value name="VALUE">
+              <block type="math_arithmetic" id="5;cu08$S~q.zrc~~z~^X">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow type="math_number" id="Z.!JpK79VGD`-T}D2FkJ">
+                    <field name="NUM">1</field>
+                  </shadow>
+                  <block type="variables_get" id="a1,4d)OWhy7Eg9K{n(oB">
+                    <field name="VAR" id="$s;(m;dD_xwJliPI=[4%" variabletype="">stake</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number" id="x%yE9bhKw*mBz7z*F7[R">
+                    <field name="NUM">1</field>
+                  </shadow>
+                  <block type="math_number" id="q],ER|KR]4M*gWmtn;HA">
+                    <field name="NUM">0.35</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="5.@wsxfz!SR.B,:gC[uf">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_operation" id="HXS#In)H{?O1{JD`^jEJ" inline="false">
+                <field name="OP">AND</field>
+                <value name="A">
+                  <block type="logic_compare" id="Ca7w[0X7uLQ9gA-l7[JZ">
+                    <field name="OP">LTE</field>
+                    <value name="A">
+                      <block type="total_runs" id="[,z);]~a9KOVF/4t6M=L"></block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="TpP_!8zXf;|b;)vfV9#e">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="contract_check_result" id="MBt75cqd2l=~sjtK(vkx">
+                    <field name="CHECK_RESULT">win</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="notify" id=".{:t7rkq;t0n7n;k_Ah:">
+                <field name="NOTIFICATION_TYPE">error</field>
+                <field name="NOTIFICATION_SOUND">earned-money</field>
+                <value name="MESSAGE">
+                  <shadow type="text" id="JYEsl=^^-C=J*FD8DYP;">
+                    <field name="TEXT">abc</field>
+                  </shadow>
+                  <block type="text" id="T-IMNd^3.wokf/=S=5:{">
+                    <field name="TEXT">不能玩了~</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="trade_again" id="c)S|KjoQdXc8l#J@5z3P"></block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="ELSE">
+      <block type="text_print" id="XmAJ|BWfA06H}`%p5;-o">
+        <value name="TEXT">
+          <shadow type="text" id="_RY0_7@4?ggILc}Rq]ra">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block type="text" id="Q2FS]2Q-!bn+4`*B)f7x">
+            <field name="TEXT">target finish</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
